@@ -159,6 +159,20 @@ namespace THA_W5_APLIKASI_BAJU
                     dtproduksimpan.Rows.Remove(dtproduksimpan.Rows[i]);
                 }
             }
+            if (dgvmain.Enabled == false)
+            {
+                dtfilter.Rows.Clear();
+                dgvfilter.DataSource = dtfilter;
+                for (int i = 0; i < dtproduksimpan.Rows.Count; i++)
+                {
+                    if (dtproduksimpan.Rows[i][4].ToString() == comboboxfilter.SelectedValue.ToString())
+                    {
+                        dtfilter.Rows.Add(dtproduksimpan.Rows[i][0], dtproduksimpan.Rows[i][1], dtproduksimpan.Rows[i][2], dtproduksimpan.Rows[i][3], dtproduksimpan.Rows[i][4]);
+                    }
+                }
+            }
+
+
         }
 
         private void comboboxkategori_SelectedIndexChanged(object sender, EventArgs e)
